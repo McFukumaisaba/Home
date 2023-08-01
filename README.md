@@ -18,10 +18,10 @@ Join our Discord community for support and updates: [Discord Invite](https://dis
 MultipleHomes is a versatile plugin for Minecraft that revolutionizes home management on your server. With its intuitive GUI interface, players can easily create and manage multiple homes with ease. The plugin seamlessly integrates with the economy system, allowing you to set prices for homes and implement dynamic pricing based on the number of homes owned.
 
 ## Customization
-Customization is key with MultipleHomes. The comprehensive "config.yml" file allows you to fine-tune every aspect of the plugin, including setting teleportation delays and disabling homes in specific worlds. With the ability to add a back button and define custom commands, you can enhance the gameplay experience for your players.
+Customization is key with MultipleHomes. The comprehensive `config.yml` file allows you to fine-tune every aspect of the plugin, including setting teleportation delays and disabling homes in specific worlds. With the ability to add a back button and define custom commands, you can enhance the gameplay experience for your players.
 
 ## Commands
-- "/home" (alias "homes" or "mh"): Opens the homes inventory.
-- "/home open <player>": Opens the homes inventory for a targeted player (for console if you use DisableCommands).
-- "/home reload": Reloads the MultipleHomes plugin.
-- "/home help": Prints help for the MultipleHomes plugin.
+- `/home` (alias `homes` or `mh`): Opens the homes inventory.
+- `/home open <player>`: Opens the homes inventory for a targeted player (for console if you use DisableCommands).
+- `/home reload`: Reloads the MultipleHomes plugin.
+- `/home help`: Prints help for the MultipleHomes plugin.
