@@ -1,0 +1,54 @@
+# ----------- Information -----------
+
+# Author: Echo24h
+# This plugin is licensed
+
+# --------- General
+
+home_locked: "&cYou do not have access to this home"
+home_not_found: "&cHome not found."
+no_enough_money: "&cNot enough money"
+
+# {home}: replace with home name
+# {loc}: replace with home location
+# {price}: replace with home location
+place_home: "&aYou have place &e{home} &aat &e{loc} &afor &6{price}$"
+
+# --------- Permissions
+no_permission: "&cYou don't have permission"
+
+disabled_worlds: "&cYou can't open this menu in this world"
+
+worlds_disable_to_place: "&cYou can't place home in this world"
+
+world_alias_classic: "&bClassic"
+world_alias_nether: "&cNether"
+world_alias_end: "&dEnder"
+
+# --------- GUI menu
+# {price}: replace with price
+# {home}: replace with home name
+# {loc}: replace with location if placed
+# {world} replace with world alias
+# {home_id} replace with home id
+menu_name: "MultipleHomes"
+home_name: "§eHome {home_id}"
+place: "&aPlace &6{price}$ &e(Click)"
+teleportation: "&aTeleportation &6{price}$ &e(Left Click)"
+replace: "&eReplace &6{price}$ &e(Right Click)"
+back: "&cReturn &e(Click)"
+locked: "&cLocked"
+location: "&7▪ &fLocation: &e{loc}"
+world: "&7▪ &fWorld: {world}"
+
+# --------- Teleportation
+teleportation_cancelled: "&cTeleportation cancelled due to movement."
+teleportation_is_cooldown: "&cYou are still on cooldown for teleportation."
+
+# {price}: replace with price
+teleportation_paid: "&aYou have paid &6{price}$ &afor the teleportation."
+teleportation_no_enough_money: "&cYou don't have enough money to teleport."
+
+title_teleported: "&aTeleported"
+title_teleportation_cancelled: "&cCancelled"
+

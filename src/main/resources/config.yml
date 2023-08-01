@@ -1,0 +1,79 @@
+# ----------- Information -----------
+
+# Author: Echo24h
+# This plugin is licensed
+
+# Plugin Page: https://www.spigotmc.org/resources/mulitplehomes-1-13-x-1-20-x.110880/
+
+# Source Code: https://github.com/Echo24h/MultipleHomes
+
+# Author Page: https://www.spigotmc.org/members/echo24h.1711225/
+
+# Discord: https://discord.com/invite/Xf3PjwXzKg
+
+# Donation Link: https://www.paypal.com/donate/?hosted_button_id=J4Y27JYWLYLBG
+
+# --------- Permissions -----------
+
+# "multiplehomes.use": Allows you to open the homes inventory if you are a player.
+# "multiplehomes.unlock.*": Grants permission to unlock all homes.
+# "multiplehomes.unlock.1"  # You can replace * with the number of home (For example,  for home 1)
+# "multiplehomes.help": Allows you to reload the MultipleHomes plugin.
+# "multiplehomes.open": Allows you to open the homes inventory for a targeted player (for console or op).
+# "multiplehomes.reload": Allows you to reload the MultipleHomes plugin.
+# "multiplehomes.*": Wildcard permission that includes all other plugin permissions.
+
+# ------------ Config --------------
+
+# --------- General
+
+# Number of homes (max 53)
+#!!!! IMPORTANT !!!!
+# If you want to grant home number 4 to a player, give him permission "myhomesgui.unlock.4"
+number_of_homes: 5
+
+# Delay for teleportation (in seconds)
+teleportation_delay: 10
+
+# --------- Economy
+
+# Enable or disable economy on this plugin (true/false)
+economy_enable: true
+
+# Default price of a home
+# - Set to 0 for disable
+home_price: 100
+
+# Home price multiplier for each home owned
+# - Set to 1 if you want constant
+home_price_multiplier: 1.5
+
+# The distance per price in number of blocks to apply a price per distance.
+# - Set to 0 if you want constant
+teleportation_block_distance_per_price: 100
+
+# The price per block distance.
+# - Set to 0 for disable
+teleportation_price_per_block_distance: 0.8
+
+# --------- Worlds
+
+# World where the menu is disabled
+disabled_worlds:
+  - "world_arena"
+
+# World where you can't place home
+worlds_disable_to_place:
+  - "world_arena"
+  - "world_safe"
+  - "world_city"
+
+# --------- Back button
+
+# Button to return to the main guy menu (if you have one)
+back_button: false
+# {player}: replace by player name
+back_command: "guymenu open {player}"
+# If you want the back command to be run by the console
+back_send_by_console: true
+

@@ -1,0 +1,59 @@
+name: MultipleHomes
+version: ${project.version}
+main: org.echo.multiplehomes.MultipleHomes
+api-version: "1.13"
+
+author: Azurix
+description: A plugin that allows you to get multiple homes with GUI menu
+
+softdepend:
+  - Vault
+  - Multiverse-Core
+
+permissions:
+  multiplehomes.help:
+    description: Allows you to print help MultipleHomes plugin
+    default: true
+  multiplehomes.use:
+    description: Allows you to open the homes inventory if you are a player
+    default: true
+  multiplehomes.unlock.*:
+    description: Allows you to unlock all homes
+    default: true
+  multiplehomes.open:
+    description: Allows you to open the homes inventory for a targeted player (for
+      console)
+    default: op
+  multiplehomes.reload:
+    description: Allows you to reload MultipleHomes plugin
+    default: op
+  multiplehomes.*:
+    description: Wildcard permission
+    default: op
+    children:
+      multiplehomes.use: true
+      multiplehomes.open: true
+      multiplehomes.reload: true
+      multiplehomes.unlock.*: true
+
+commands:
+  home:
+    description: Open the homes inventory if you are a player
+    usage: /<command>
+    permission: multiplehomes.use
+    aliases:
+      - homes
+      - mh
+    subcommands:
+      open:
+        description: Open the homes inventory for a targeted player (for console)
+        usage: /<command> open {player}
+        permission: multiplehomes.open
+      reload:
+        description: Reload MultipleHomes plugin
+        usage: /<command> reload
+        permission: multiplehomes.reload
+      help:
+        description: Print help of MultipleHomes plugin
+        usage: /<command> help
+        permission: multiplehomes.help
