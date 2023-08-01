@@ -4,6 +4,8 @@
 
 **Plugin Page:** [Download .jar](https://www.spigotmc.org/resources/multiplehomes-1-13-x-1-20-x.110880/)
 
+**To learn more about this plugin::** [Documentation](https://www.spigotmc.org/resources/multiplehomes-1-13-x-1-20-x.110880/)
+
 **Languages Supported:** Custom
 
 **Donation Link:** [Support us on PayPal](https://www.paypal.com/donate/?hosted_button_id=J4Y27JYWLYLBG)
