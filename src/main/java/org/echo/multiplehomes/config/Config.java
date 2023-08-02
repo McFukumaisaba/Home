@@ -49,7 +49,10 @@ public class Config {
 
     // ECONOMY
     public boolean isEconomyEnable() {
+        if (main.getEconomy() == null)
+            return false;
         return yaml.getBoolean("economy_enable", false);
+
     }
     public double getHomePrice() {
         return yaml.getDouble("home_price", 1);
