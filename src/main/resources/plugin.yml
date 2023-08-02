@@ -3,7 +3,7 @@ version: ${project.version}
 main: org.echo.multiplehomes.MultipleHomes
 api-version: "1.13"
 
-author: Azurix
+author: Echo24h
 description: A plugin that allows you to get multiple homes with GUI menu
 
 softdepend:

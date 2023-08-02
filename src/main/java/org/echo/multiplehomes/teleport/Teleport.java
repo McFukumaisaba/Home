@@ -65,7 +65,8 @@ public class Teleport {
     }
 
     private void teleportPlayer(Player player, Location location) {
-        if (main.getMyConfig().isEconomyEnable()) {
+
+        if (main.getEconomy() != null) {
 
             double price = TeleportUtils.getTeleportationPrice(main, player.getLocation(), location);
 
