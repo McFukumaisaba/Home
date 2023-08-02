@@ -29,7 +29,7 @@
 
 # Number of homes (max 53)
 #!!!! IMPORTANT !!!!
-# If you want to grant home number 4 to a player, give him permission "myhomesgui.unlock.4"
+# If you want to grant home number 4 to a player, give him permission "multiplehomes.unlock.4"
 number_of_homes: 5
 
 # Delay for teleportation (in seconds)
