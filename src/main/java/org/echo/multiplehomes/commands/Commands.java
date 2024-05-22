@@ -1,4 +1,4 @@
-package org.echo.multiplehomes.commads;
+package org.echo.multiplehomes.commands;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.PlayerArgument;
