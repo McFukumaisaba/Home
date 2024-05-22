@@ -1,81 +1,50 @@
 package org.echo.multiplehomes.commads;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
+import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.echo.multiplehomes.MultipleHomes;
 
-public class Commands implements CommandExecutor {
+public class Commands {
 
-    private MultipleHomes main;
+    private final MultipleHomes main;
 
     public Commands(MultipleHomes main) {
         this.main = main;
     }
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public void registerCommands() {
+        new CommandAPICommand("multiplehomes")
+                .withAliases("mh", "home", "homes")
+                .withPermission("multiplehomes.use")
+                .executesPlayer((sender, args) -> {
+                    openHomesInventory(sender);
+                })
+                .withSubcommand(new CommandAPICommand("help")
+                        .withPermission("multiplehomes.help")
+                        .executes((sender, args) -> {
+                            printHelp(sender);
+                        }))
+                .withSubcommand(new CommandAPICommand("open")
+                        .withPermission("multiplehomes.open")
+                        .withOptionalArguments(new PlayerArgument("target"))
+                        .executesPlayer((sender, args) -> {
+                            Player target = (Player) args.get("target");
+                            if (target != null) {
+                                openHomesInventory(target);
+                            } else {
+                                openHomesInventory(sender);
+                            }
 
-        if (args.length == 0) {
-            // /multiplehomes command without any subcommand or arguments
-            if (sender.hasPermission("multiplehomes.use")) {
-
-                if (sender instanceof Player) {
-                    Player player = (Player) sender;
-                    // Open the homes inventory for the player
-                    openHomesInventory(player);
-                } else {
-                    sender.sendMessage("§cOnly players can use this command.");
-                }
-                return true;
-            }
-            else {
-                sender.sendMessage(main.getMessages().getNoPermissionMessage());
-            }
-        } else if (args[0].equalsIgnoreCase("open")) {
-            // /multiplehomes open <player>
-            if (sender.hasPermission("multiplehomes.open")) {
-                if (args.length > 1) {
-                    // Get the target player
-                    Player targetPlayer = main.getServer().getPlayer(args[1]);
-                    if (targetPlayer != null) {
-                        // Open the homes inventory for the target player
-                        openHomesInventory(targetPlayer);
-                    } else {
-                        sender.sendMessage("§cPlayer not found: " + args[1]);
-                    }
-                } else {
-                    sender.sendMessage("§fUsage: §e/home open <player>");
-                }
-            } else {
-                sender.sendMessage(main.getMessages().getNoPermissionMessage());
-            }
-            return true;
-        } else if (args[0].equalsIgnoreCase("reload")) {
-            // /multiplehomes reload
-            if (sender.hasPermission("multiplehomes.reload")) {
-                // Reload the plugin
-                main.reloadPlugin();
-                sender.sendMessage("§a[MultipleHomes] plugin reloaded.");
-            } else {
-                sender.sendMessage(main.getMessages().getNoPermissionMessage());
-            }
-            return true;
-        } else if (args[0].equalsIgnoreCase("help")) {
-            // /MultipleHomes help
-            if (sender.hasPermission("multiplehomes.help")) {
-                // Print help message
-                printHelp(sender);
-
-                // Add additional help messages as needed
-            } else {
-                sender.sendMessage(main.getMessages().getNoPermissionMessage());
-            }
-            return true;
-        }
-        sender.sendMessage("§cUsage: §e/home help");
-        return true;
+                        }))
+                .withSubcommand(new CommandAPICommand("reload")
+                        .withPermission("multiplehomes.reload")
+                        .executes((sender, args) -> {
+                            main.reloadPlugin();
+                            sender.sendMessage("§a[MultipleHomes] plugin reloaded.");
+                        }))
+                .register();
     }
 
     private void printHelp(CommandSender sender) {

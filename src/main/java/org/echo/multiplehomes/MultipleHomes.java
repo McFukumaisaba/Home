@@ -1,5 +1,7 @@
 package org.echo.multiplehomes;
 
+import dev.jorel.commandapi.CommandAPI;
+import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -26,6 +28,11 @@ public final class MultipleHomes extends JavaPlugin {
         private Economy eco;
 
         @Override
+        public void onLoad() {
+            CommandAPI.onLoad(new CommandAPIBukkitConfig(this).verboseOutput(true));
+        }
+
+        @Override
         public void onEnable() {
 
             config = new Config(this);
@@ -49,9 +56,8 @@ public final class MultipleHomes extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new GuiListener(this, teleport), this);
             getServer().getPluginManager().registerEvents(new TeleportListener(this, teleport), this);
 
-            getCommand("mh").setExecutor(new Commands(this));
-            getCommand("home").setExecutor(new Commands(this));
-            getCommand("homes").setExecutor(new Commands(this));
+            CommandAPI.onEnable();
+            new Commands(this).registerCommands();
         }
 
         @Override
