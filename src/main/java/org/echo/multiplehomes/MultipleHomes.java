@@ -6,7 +6,7 @@ import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.echo.multiplehomes.commads.Commands;
+import org.echo.multiplehomes.commands.Commands;
 import org.echo.multiplehomes.config.Config;
 import org.echo.multiplehomes.config.Data;
 import org.echo.multiplehomes.config.Messages;
