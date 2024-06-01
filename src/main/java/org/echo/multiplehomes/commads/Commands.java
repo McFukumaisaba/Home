@@ -5,6 +5,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.echo.multiplehomes.MultipleHomes;
+import org.geysermc.floodgate.api.FloodgateApi;
+import org.geysermc.floodgate.api.player.FloodgatePlayer;
+import org.geysermc.geyser.api.GeyserApi;
 
 public class Commands implements CommandExecutor {
 
@@ -87,9 +90,16 @@ public class Commands implements CommandExecutor {
     }
 
     private void openHomesInventory(Player player) {
-        if (main.getMyConfig().getDisabledWorlds().contains(player.getWorld().getName()))
+        if (main.getMyConfig().getDisabledWorlds().contains(player.getWorld().getName())) {
             player.sendMessage(main.getMessages().getDisabledWorldsMessage());
-        else
-            main.getGuyMenu().openMenu(player);
+        }
+        else {
+            if (!player.getName().contains(".")) {
+                main.getGuiMenu().openMenu(player);
+            } else {
+                FloodgatePlayer bePlayer = FloodgateApi.getInstance().getPlayer(player.getUniqueId());
+                bePlayer.sendForm(main.getBedrockGuiMenu().createSelectModeMenu(player));
+            }
+        }
     }
 }

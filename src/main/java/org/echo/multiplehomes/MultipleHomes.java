@@ -8,6 +8,7 @@ import org.echo.multiplehomes.commads.Commands;
 import org.echo.multiplehomes.config.Config;
 import org.echo.multiplehomes.config.Data;
 import org.echo.multiplehomes.config.Messages;
+import org.echo.multiplehomes.gui.BedrockGuiMenu;
 import org.echo.multiplehomes.gui.GuiListener;
 import org.echo.multiplehomes.gui.GuiMenu;
 import org.echo.multiplehomes.teleport.Teleport;
@@ -21,6 +22,7 @@ public final class MultipleHomes extends JavaPlugin {
         private Config config;
         private Data data;
         private GuiMenu guiMenu;
+        private BedrockGuiMenu bedrockGuiMenu;
         private Teleport teleport;
 
         private Economy eco;
@@ -45,6 +47,8 @@ public final class MultipleHomes extends JavaPlugin {
             guiMenu = new GuiMenu(this);
 
             teleport = new Teleport(this);
+
+            bedrockGuiMenu = new BedrockGuiMenu(this, teleport);
 
             getServer().getPluginManager().registerEvents(new GuiListener(this, teleport), this);
             getServer().getPluginManager().registerEvents(new TeleportListener(this, teleport), this);
@@ -100,8 +104,12 @@ public final class MultipleHomes extends JavaPlugin {
             return data;
         }
 
-        public GuiMenu getGuyMenu() {
+        public GuiMenu getGuiMenu() {
             return guiMenu;
+        }
+
+        public BedrockGuiMenu getBedrockGuiMenu() {
+            return bedrockGuiMenu;
         }
 
         public Economy getEconomy() {

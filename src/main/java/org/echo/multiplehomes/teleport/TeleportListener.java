@@ -24,8 +24,7 @@ public class TeleportListener implements Listener {
             Location from = event.getFrom();
             Location to = event.getTo();
 
-            // Vérifier si les coordonnées X, Y, Z ont changé
-            if (from.getX() != to.getX() || from.getY() != to.getY() || from.getZ() != to.getZ()) {
+            if (from.distance(to) == 0) {
                 event.setCancelled(true);
                 event.getPlayer().sendMessage(main.getMessages().getTeleportationCancelledMessage());
                 teleport.cancelTeleportation(event.getPlayer());
