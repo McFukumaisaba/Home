@@ -93,10 +93,11 @@ public class Commands implements CommandExecutor {
             player.sendMessage(main.getMessages().getDisabledWorldsMessage());
         }
         else {
-            FloodgatePlayer bePlayer = FloodgateApi.getInstance().getPlayer(player.getUniqueId());
-            if (bePlayer == null) {
+
+            if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) {
                 main.getGuiMenu().openMenu(player);
             } else {
+                FloodgatePlayer bePlayer = FloodgateApi.getInstance().getPlayer(player.getUniqueId());
                 bePlayer.sendForm(main.getBedrockGuiMenu().createSelectModeMenu(player));
             }
         }
