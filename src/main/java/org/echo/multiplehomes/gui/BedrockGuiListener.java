@@ -24,7 +24,6 @@ public class BedrockGuiListener {
     }
 
     public void selectModeMenuListener(Player player, SimpleFormResponse response) {
-        System.out.println("selectModeMenuListener発火");
         int clickId = response.clickedButtonId();
 
         SimpleForm.Builder form = null;
@@ -40,7 +39,6 @@ public class BedrockGuiListener {
 
         FloodgatePlayer bePlayer = FloodgateApi.getInstance().getPlayer(player.getUniqueId());
         bePlayer.sendForm(form);
-        System.out.println("formを送信");
     }
 
     public void teleportMenuListener(Player player, SimpleFormResponse response) {
