@@ -94,7 +94,7 @@ public class Commands implements CommandExecutor {
         }
         else {
 
-            if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) {
+            if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) {
                 main.getGuiMenu().openMenu(player);
             } else {
                 FloodgatePlayer bePlayer = FloodgateApi.getInstance().getPlayer(player.getUniqueId());
