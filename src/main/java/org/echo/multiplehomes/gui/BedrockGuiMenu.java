@@ -46,10 +46,13 @@ public class BedrockGuiMenu {
                 description = homeName + "\n" + formatLocationMessage(home.getLocation()) + "\n" + moneyMsg;
             }
             else if (player.hasPermission("multiplehomes.unlock." + i) || player.hasPermission("multiplehomes.unlock.*")) {
-                if (isTeleport) continue;
-
-                imgURL = "https://static.wikia.nocookie.net/minecraft_ja_gamepedia/images/9/9a/Orange_Bed.png/revision/latest?cb=20191108012313";
-                description = homeName + "\n" + main.getMessages().getPlaceMessage(Double.toString(price));
+                if (isTeleport) {
+                    imgURL = "https://static.wikia.nocookie.net/minecraft_ja_gamepedia/images/6/6e/Red_Bed.png/revision/latest?cb=20191108012457";
+                    description = homeName + "（開放されていません）";
+                } else {
+                    imgURL = "https://static.wikia.nocookie.net/minecraft_ja_gamepedia/images/9/9a/Orange_Bed.png/revision/latest?cb=20191108012313";
+                    description = homeName + "\n" + main.getMessages().getPlaceMessage(Double.toString(price));
+                }
             }
             else {
                 if (isTeleport) continue;
